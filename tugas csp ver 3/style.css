@@ -223,7 +223,7 @@ body {
     max-width: 280px;
     margin-bottom: 20px;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 11px;
+    font-size: 10px;
     line-height: 1.8;
     color: var(--dark);
 }
@@ -295,7 +295,7 @@ body {
     width: 5%;
     font-size: 17px;
     font-style: normal;
-    color: #ec97cc;
+    color: #161415;
 }
 
 /* pita full layar */
@@ -453,7 +453,7 @@ a:hover {
         font-size: 8px;
     }
 
-    /* Pita kuning */
+    /* Pita */
 
     .pita td {
         height: 40px;
