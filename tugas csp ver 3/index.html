@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ruangkata. — Setiap kata punya ruang</title>
+
+<!-- CSS EXTERNAL: untuk header, hero, pita memanjang, footer -->
+<link rel="stylesheet" href="style.css">
+
+<!-- CSS INTERNAL: untuk catatan, quotes, dan tiga kata, tiga rasa -->
+<style>
+  .bag-label td { padding: 40px 0 0; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; }
+  .bag-label td.kn { text-align: right; }
+
+  /* 01 catatan pilihan */
+  .kolom-artikel { width: 59%; padding-top: 30px; }
+  .jarak         { width: 7%; }
+  .kolom-kartu   { width: 34%; padding-top: 28px; padding-bottom: 52px; }
+  .meta-artikel  { font-size: 10px; letter-spacing: .16em; text-transform: uppercase; }
+  .abu           { color: #7a7a6c; }
+  .judul-artikel {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 46px; line-height: 1.08; letter-spacing: -.03em;
+    margin-top: 14px;
+  }
+  .lead {
+    font-family: Georgia, "Times New Roman", serif;
+    font-style: italic; font-size: 20px; line-height: 1.4;
+    margin-top: 22px;
+  }
+  .isi-artikel { font-size: 12.5px; line-height: 1.95; text-align: justify; margin-top: 22px; }
+  .rust-kecil  { font-size: 12px; font-style: italic; color: #27307a; margin-top: 14px; }
+  .pie         { border-top: 1px solid #ddd8c8; margin-top: 28px; padding-top: 14px; text-align: right; font-size: 11px; }
+
+  .kartu       { background: #e8e8df; border-top: 3px solid #27307a; padding: 24px 29px 26px; }
+  .kartu-atas td { font-size: 10px; letter-spacing: .16em; text-transform: uppercase; }
+  .aa {
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: bold; font-size: 112px; line-height: 1; letter-spacing: -.05em;
+    margin-top: 14px;
+  }
+  .aa span { color: #ad1e74; }
+  .kartu-sub  { font-size: 9.5px; letter-spacing: .16em; text-transform: uppercase; margin-top: 18px; }
+  .kartu-ital {
+    font-family: Georgia, "Times New Roman", serif;
+    font-style: italic; font-size: 22px; line-height: 1.32; margin-top: 18px;
+  }
+  .kartu-garis { border-top: 1px solid #cfcfc4; margin-top: 28px; padding-top: 18px; }
+  .kartu-garis b  { display: block; font-size: 11px; }
+  .kartu-garis span.d { display: block; font-size: 10.5px; color: #6b6b60; margin-bottom: 12px; }
+  .kartu-cat  { font-size: 10px; line-height: 1.7; color: #5d5d52; margin-top: 22px; }
+
+  /*  02 kata yang tinggal (hijau)*/
+  .hijau { background: #27307a; color: #f8f5ec; position: relative; }
+  .hijau .tanda {
+    position: absolute; left: 24px; top: 6px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 96px; line-height: 1; color: #55665b; font-style: italic;
+  }
+  .hijau .bag-label td { padding-top: 26px; color: #a9b5aa; }
+  .kutipan {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 46px; line-height: 56px; letter-spacing: -.02em;
+    text-align: center; padding: 58px 0 40px;
+  }
+  .kutipan i { color: #5ecce8; }
+  .hijau-bawah td { font-size: 10px; letter-spacing: .16em; text-transform: uppercase; padding-bottom: 14px; }
+  .hijau-bawah td.kn { text-align: right; font-family: "Courier New", monospace; color: #d9d2b0; text-transform: none; }
+  .hijau-pie { border-top: 1px solid rgba(239, 238, 236, 0.25); text-align: right; font-size: 11px; padding: 12px 0 28px; color: #a9b5aa; }
+
+  /* ----- 03 tiga kata ----- */
+  .tiga { width: 100%; margin-top: 38px; border: 1px solid #263a30; }
+  .tiga td.kartu3 { width: 33.333%; height: 235px; padding: 28px 22px 22px; }
+  .k-kuning { background: #5ecce8; }
+  .k-rust   { background: #ad1e74; color: #fff; }
+  .k-grid   {
+    background-color: #e8e8df;
+    background-image:
+      linear-gradient(rgba(38,58,48,.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(38,58,48,.07) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+  .k-label { font-family: "Courier New", monospace; font-size: 9px; letter-spacing: .14em; text-transform: uppercase; }
+  .k-kata  { font-family: Georgia, "Times New Roman", serif; font-size: 54px; line-height: 1; margin-top: 34px; }
+  .k-teks  { font-size: 12px; line-height: 1.6; margin-top: 28px; }
+  .k-kode  { font-family: "Courier New", monospace; font-size: 9px; margin-top: 18px; opacity: .8; }
+  .tiga-pie { border-top: 1px solid #ddd8c8; margin-top: 18px; padding: 12px 0 52px; text-align: right; font-size: 11px; }
+</style>
+</head>
+
+<body>
+<table class="halaman" id="atas">
+
+<!-- HEADER  -->
+<tr><td class="penuh">
+<table class="lebar"><tr><td class="garis-b">
+  <table class="isi header"><tr>
+    <td class="logo"><a href="#atas">ruang<span>kata.</span></a></td>
+    <td class="menu"><a href="#catatan">Catatan</a> <a href="#kutipan">Kutipan</a> <a href="#lab">Laboratorium <span style="font-size:11px">↗</span></a></td>
+    <td class="meta-atas">Jurnal digital / Vol. 01</td>
+  </tr></table>
+</td></tr></table>
+</td></tr>
+
+<!-- HERO  -->
+<tr><td class="penuh">
+<table class="lebar"><tr><td>
+  <table class="isi">
+    <tr><td colspan="2" class="eyebrow label"><br><br><span class="titik"></span>Tempat kata-kata menemukan bentuk</td></tr>
+    <tr>
+      <td class="hero-kiri">
+        <br><h1 class="judul">Setiap kata<span class="bintang">✳</span><br>punya <i>ruang</i><span class="rust">.</span></h1>
+      </td>
+      <td class="hero-kanan">
+        <p class="label">Sebuah eksperimen tipografi</p>
+        <p class="ket">Tentang kalimat yang singgah, pikiran yang tumbuh, dan keindahan di antara keduanya.</p>
+        <table class="mulai"><tr>
+          <td><a href="#catatan">Mulai menjelajah</a></td>
+          <td style="text-align:right;font-size:10px"><a href="#catatan">↘</a></td>
+        </tr></table>
+      </td>
+    </tr>
+  </table>
+  <table class="isi hero-bawah"><tr>
+    <td>Sedikit kata. Banyak makna.</td>
+    <td style="text-align:right">Scroll untuk membaca ↓</td>
+  </tr></table>
+</td></tr></table>
+</td></tr>
+
+<!--  PITA Full layar panjang  -->
+<tr><td class="penuh">
+<table class="pita"><tr>
+  <td>kata &amp; ruang</td><td class="bt">✳</td>
+  <td>bentuk &amp; makna</td><td class="bt">✳</td>
+  <td>huruf &amp; rasa</td><td class="bt">✳</td>
+  <td>kata &amp; ruang</td><td class="bt">✳</td>
+</tr></table>
+</td></tr>
+
+<!--  01 CATATAN PILIHAN -->
+<tr><td class="penuh" id="catatan">
+<table class="lebar"><tr><td>
+  <table class="isi bag-label"><tr>
+    <td>01 / Catatan pilihan</td>
+    <td class="kn">Membaca dengan perlahan</td>
+  </tr></table>
+  <table class="isi"><tr>
+    <td class="kolom-artikel">
+      <p class="meta-artikel"><span style="color:#ad1e74">Tentang keseharian</span> <span class="abu">&nbsp;· 3 menit baca</span></p>
+      <h2 class="judul-artikel">Seni menemukan<br>jeda di tengah <i>riuh.</i></h2>
+      <p class="lead">Tidak semua ruang harus diisi. Tidak semua waktu<br>harus berlari.</p>
+      <p class="isi-artikel"><span style="float:left;font-family:Georgia,'Times New Roman',serif;font-size:76px;line-height:.78;color:#ad1e74;padding:8px 12px 0 0">P</span>agi datang tanpa terburu-buru. Cahaya menyelinap lewat tirai, menyentuh sudut meja, lalu berhenti di halaman buku yang semalam belum selesai dibaca. Di luar, kota mulai menyusun suaranya. Di dalam, secangkir teh masih mengepulkan cerita.</p>
+      <p class="isi-artikel" style="margin-top:12px">Kita sering lupa bahwa jeda juga bagian dari perjalanan. Berhenti sebentar bukan berarti kehilangan arah. Kadang, justru dalam diam, kita mendengar hal-hal yang selama ini tertutup oleh kesibukan.</p>
+      <p class="rust-kecil">Hari ini, beri dirimu ruang untuk sekadar ada.</p>
+      <p class="pie">+</p>
+    </td>
+    <td class="jarak"></td>
+    <td class="kolom-kartu">
+      <table class="kartu" style="width:100%"><tr><td>
+        <table style="width:100%" class="kartu-atas"><tr>
+          <td>Catatan pinggir</td>
+          <td style="text-align:right;font-size:9px">↗</td>
+        </tr></table>
+        <p class="aa">Aa<span>.</span></p>
+        <p class="kartu-sub">Serif meets sans-serif</p>
+        <p class="kartu-ital">Dua karakter berbeda.<br>Satu cerita yang sama.</p>
+        <p class="kartu-garis">
+          <b>Serif</b><span class="d">Hangat, klasik, bercerita.</span>
+          <b>Sans-serif</b><span class="d">Bersih, lugas, bersahaja.</span>
+        </p>
+        <p class="kartu-cat">Bentuk huruf ikut menentukan<br>bagaimana sebuah pesan terasa.</p>
+      </td></tr></table>
+    </td>
+  </tr></table>
+</td></tr></table>
+</td></tr>
+
+<!--  02 KATA YANG TINGGAL -->
+<tr><td class="penuh hijau" id="kutipan">
+<span class="tanda">“</span>
+<table class="lebar"><tr><td>
+  <table class="isi bag-label"><tr>
+    <td>02 / Kata yang tinggal</td>
+    <td class="kn">Sebuah pengingat kecil</td>
+  </tr></table>
+  <table class="isi"><tr>
+    <td class="kutipan">Pelan-pelan bukan berarti tertinggal.<br>Bisa jadi, kamu sedang<br><i>menikmati perjalanan.</i></td>
+  </tr></table>
+  <table class="isi hijau-bawah"><tr>
+    <td>— Catatan Ruang Kata</td>
+    <td class="kn">take your time.</td>
+  </tr></table>
+  <table class="isi"><tr><td class="hijau-pie">+</td></tr></table>
+</td></tr></table>
+</td></tr>
+
+<!--  03 TIGA KATA, TIGA RASA  -->
+<tr><td class="penuh">
+<table class="lebar"><tr><td class="garis-b">
+  <table class="isi bag-label" style="margin-top:0"><tr>
+    <td style="padding-top:36px">03 / Tiga kata, tiga rasa</td>
+    <td class="kn" style="padding-top:36px">Bermain dengan latar &amp; huruf</td>
+  </tr></table>
+  <table class="isi">
+    <tr><td>
+      <table class="tiga"><tr>
+        <td class="kartu3 k-kuning">
+          <p class="k-label">01 — letter spacing</p>
+          <p class="k-kata" style="letter-spacing:.18em">j e d a</p>
+          <p class="k-teks">Ruang kecil di antara kesibukan.<br>Tarik napas. Nikmati sekarang.</p>
+          <p class="k-kode">letter-spacing: .18em;</p>
+        </td>
+        <td class="kartu3 k-rust">
+          <p class="k-label">02 — font style</p>
+          <p class="k-kata" style="font-style:italic">tumbuh.</p>
+          <p class="k-teks">Tak harus terlihat setiap hari.<br>Akar pun bekerja dalam sunyi.</p>
+          <p class="k-kode">font-style: italic;</p>
+        </td>
+        <td class="kartu3 k-grid">
+          <p class="k-label">03 — text transform</p>
+          <p class="k-kata" style="font-family:Arial,Helvetica,sans-serif;font-weight:900;font-size:38px;letter-spacing:-.02em;text-transform:uppercase;margin-top:42px">berani</p>
+          <p class="k-teks" style="margin-top:30px">Mulai sebelum merasa siap.<br>Satu langkah sudah berarti.</p>
+          <p class="k-kode">text-transform: uppercase;</p>
+        </td>
+      </tr></table>
+      <p class="tiga-pie">+</p>
+    </td></tr>
+  </table>
+</td></tr></table>
+</td></tr>
+
+<!--  04 LABORATORIUM MINI -->
+<tr><td class="penuh" id="lab">
+<table class="lebar"><tr><td style="border-bottom:1px solid #263a30">
+  <table class="isi">
+    <tr><td style="padding-top:44px;font-size:10px;letter-spacing:.16em;text-transform:uppercase">04 / Laboratorium mini</td></tr>
+    <tr><td style="padding-top:32px;font-family:Georgia,'Times New Roman',serif;font-size:40px;line-height:1.1;letter-spacing:-.03em">Kata yang sama.<br><i>Rasa yang berbeda.</i></td></tr>
+    <tr><td style="padding-top:22px;font-size:12px;line-height:1.85;color:#6b6b60">Geser, pilih, dan lihat bagaimana CSS<br>mengubah suasana sebuah kalimat.</td></tr>
+    <tr><td style="height:92px"></td></tr>
+  </table>
+</td></tr></table>
+</td></tr>
+
+<!-- PENUTUP -->
+<tr><td class="penuh">
+<table class="lebar"><tr><td style="border-bottom:1px solid #263a30">
+  <table class="isi">
+    <tr><td style="padding-top:56px;text-align:center;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:#b04a32">Sebelum kamu pergi</td></tr>
+    <tr><td style="padding-top:24px;text-align:center;font-family:Georgia,'Times New Roman',serif;font-size:25px;line-height:1.4">Kalimat sederhana bisa jadi istimewa.</td></tr>
+    <tr><td style="text-align:center;font-family:Georgia,'Times New Roman',serif;font-style:italic;font-size:25px;line-height:1.4;color:#7a7a6c">Tergantung bagaimana kamu memberinya ruang.</td></tr>
+    <tr><td style="padding:34px 0 38px;text-align:center"><a href="#atas" style="font-size:10.5px;border-bottom:1px solid #263a30;padding-bottom:3px">Kembali ke atas ↑</a></td></tr>
+  </table>
+</td></tr></table>
+</td></tr>
+
+<!--  FOOTER  -->
+<tr><td class="penuh">
+<table class="lebar"><tr><td>
+  <table class="isi footer"><tr>
+    <td class="logo-kecil">ruang<span>kata.</span></td>
+    <td class="tengah-f">Dibuat untuk dibaca. Dirancang untuk dicoba.</td>
+    <td class="kanan-f">Latihan CSS · Vol. 01</td>
+  </tr></table>
+</td></tr></table>
+</td></tr>
+
+</table>
+</body>
+</html>

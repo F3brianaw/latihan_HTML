@@ -1,0 +1,479 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #f7f5ec;
+    color: #26352d;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 13px;
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+/* warna utama web */
+
+:root {
+    --background: #f7f5ec;
+    --dark: #26352d;
+    --green: #27307a;
+    --rust: #ad1e74;
+    --yellow: #f94081;
+    --gray: #7a7a6c;
+    --line: #d9d6ca;
+}
+
+
+/* untuk tabel */
+
+.halaman {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.halaman > tbody > tr > td {
+    padding: 0;
+    vertical-align: top;
+}
+
+.penuh {
+    width: 100%;
+    padding: 0 !important;
+}
+
+
+.lebar {
+    width: 86%;
+    max-width: 1080px;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+
+
+.isi {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.isi td {
+    vertical-align: middle;
+}
+
+
+/* header dan navbar */
+
+.garis-b {
+    border-bottom: 1px solid #aaa99c;
+    padding: 15px 0 !important;
+}
+
+.header {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.header td {
+    padding: 8px 10px;
+    vertical-align: middle;
+}
+
+/* Logo */
+
+.logo {
+    width: 30%;
+    text-align: left;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 23px;
+    font-weight: bold;
+    letter-spacing: -1.2px;
+}
+
+.logo a {
+    color: var(--dark);
+    text-decoration: none;
+}
+
+.logo span,
+.logo-kecil span {
+    color: var(--rust);
+}
+
+/* navbar */
+
+.menu {
+    width: 43%;
+    text-align: center;
+    white-space: nowrap;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 9px;
+}
+
+.menu a {
+    display: inline-block;
+    margin: 0 9px;
+    color: var(--dark);
+    text-decoration: none;
+    transition: color .3s ease;
+}
+
+.menu a:hover {
+    color: var(--rust);
+}
+
+/* Keterangan jurnal */
+
+.meta-atas {
+    width: 27%;
+    text-align: right;
+    font-family: "Courier New", monospace;
+    font-size: 7px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+}
+
+
+/* hero */
+
+.eyebrow {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 9px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+}
+
+.label {
+    color: var(--dark);
+}
+
+.titik {
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    margin-right: 7px;
+    border-radius: 50%;
+    background-color: var(--rust);
+    vertical-align: middle;
+}
+
+/* Area judul */
+
+.hero-kiri {
+    width: 66%;
+    padding: 15px 0 20px !important;
+    vertical-align: middle !important;
+}
+
+.hero-kanan {
+    width: 34%;
+    padding: 20px 0 20px 35px !important;
+    vertical-align: middle !important;
+}
+
+/* Judul utama */
+
+.judul {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(55px, 8.2vw, 94px);
+    font-weight: normal;
+    line-height: .88;
+    letter-spacing: -.065em;
+    color: var(--dark);
+}
+
+/* Bintang pada judul */
+
+.bintang {
+    display: inline-block;
+    margin-left: 10px;
+    color: var(--rust);
+    font-size: .48em;
+    font-weight: normal;
+    vertical-align: 15%;
+}
+
+/* Kata ruang */
+
+.judul i {
+    color: var(--rust);
+    font-weight: normal;
+}
+
+/* Warna titik setelah ruang */
+
+.rust {
+    color: var(--rust);
+}
+
+/* Deskripsi hero */
+
+.hero-kanan .label {
+    margin-bottom: 16px;
+}
+
+.ket {
+    max-width: 280px;
+    margin-bottom: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    line-height: 1.8;
+    color: var(--dark);
+}
+
+/* Link mulai menjelajah */
+
+.mulai {
+    width: 90%;
+    max-width: 220px;
+    border-collapse: collapse;
+    border-bottom: 1px solid #77796e;
+    font-size: 10px;
+}
+
+.mulai td {
+    padding: 5px 0;
+}
+
+.mulai a {
+    color: var(--dark);
+    text-decoration: none;
+}
+
+.mulai a:hover {
+    color: var(--rust);
+}
+
+
+.hero-bawah {
+    border-top: 1px solid var(--line);
+    font-family: "Courier New", monospace;
+    font-size: 7px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.hero-bawah td {
+    padding: 12px 0 !important;
+}
+
+
+
+.pita {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    background-color: var(--yellow);
+    border-top: 1px solid #bd9e51;
+    border-bottom: 1px solid #bd9e51;
+    text-align: center;
+}
+
+/* Isi pita */
+
+.pita td {
+    height: 48px;
+    padding: 5px 3px;
+    vertical-align: middle;
+    background-color: var(--yellow);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 19px;
+    font-style: italic;
+    white-space: nowrap;
+}
+
+/* Simbol bintang */
+
+.pita .bt {
+    width: 5%;
+    font-size: 17px;
+    font-style: normal;
+    color: #ec97cc;
+}
+
+/* pita full layar */
+
+.pita {
+    margin: 0;
+}
+
+
+/* footer */
+
+.footer {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.footer td {
+    padding: 20px 10px;
+    vertical-align: middle;
+}
+
+/* Logo footer */
+
+.logo-kecil {
+    width: 25%;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: -1px;
+}
+
+/* Tulisan tengah footer */
+
+.tengah-f {
+    width: 50%;
+    text-align: center;
+    font-family: "Courier New", monospace;
+    font-size: 7px;
+    letter-spacing: .8px;
+    text-transform: uppercase;
+}
+
+/* Tulisan kanan footer */
+
+.kanan-f {
+    width: 25%;
+    text-align: right;
+    font-family: "Courier New", monospace;
+    font-size: 7px;
+    letter-spacing: .8px;
+    text-transform: uppercase;
+}
+
+
+/* animasi dan hover */
+
+a {
+    transition: color .25s ease;
+}
+
+a:hover {
+    color: var(--rust);
+}
+
+
+/* reponsive tablet */
+
+@media screen and (max-width: 900px) {
+
+    .lebar {
+        width: 90%;
+    }
+
+    .judul {
+        font-size: clamp(48px, 8vw, 72px);
+    }
+
+    .hero-kanan {
+        padding-left: 20px !important;
+    }
+
+    .menu a {
+        margin: 0 5px;
+    }
+
+    .pita td {
+        font-size: 16px;
+    }
+
+}
+
+
+/* reponsive hp */
+
+@media screen and (max-width: 600px) {
+
+    .lebar {
+        width: 92%;
+    }
+
+    /* Header */
+
+    .header td {
+        padding: 8px 3px;
+    }
+
+    .logo {
+        width: 28%;
+        font-size: 17px;
+    }
+
+    .menu {
+        width: 72%;
+        text-align: right;
+        font-size: 8px;
+    }
+
+    .menu a {
+        margin: 0 3px;
+    }
+
+    .meta-atas {
+        display: none;
+    }
+
+    /* Hero */
+
+    .hero-kiri {
+        width: 65%;
+    }
+
+    .hero-kanan {
+        width: 35%;
+        padding-left: 8px !important;
+    }
+
+    .judul {
+        font-size: clamp(35px, 8vw, 48px);
+        letter-spacing: -.06em;
+    }
+
+    .bintang {
+        margin-left: 3px;
+    }
+
+    .ket {
+        font-size: 8px;
+    }
+
+    .hero-kanan .label {
+        font-size: 7px;
+    }
+
+    .mulai {
+        font-size: 8px;
+    }
+
+    /* Pita kuning */
+
+    .pita td {
+        height: 40px;
+        font-size: 12px;
+    }
+
+    .pita .bt {
+        font-size: 11px;
+    }
+
+    /* Footer */
+
+    .logo-kecil {
+        font-size: 15px;
+    }
+
+    .tengah-f,
+    .kanan-f {
+        font-size: 5px;
+        letter-spacing: .3px;
+    }
+
+}
